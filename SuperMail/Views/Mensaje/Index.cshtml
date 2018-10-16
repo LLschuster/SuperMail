@@ -1,0 +1,31 @@
+﻿@using SuperMail.Models
+@model MensajeViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de mensajes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.mensajes) {
+    <tr>
+        <td>@Html.DisplayFor(m => item.id)</td>
+        <td>@Html.DisplayFor(m => item.contenido)</td>
+        <td>@Html.DisplayFor(m => item.destinatario)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>
