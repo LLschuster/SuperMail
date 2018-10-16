@@ -5,13 +5,11 @@ using System.Text;
 
 namespace SuperMail.core.models
 {
-    public class mensaje
+    public class mensaje : BaseEntity
     {
-        [Key]
-        public int id { get; set; }
+        
         public string contenido { get; set; }
         public string destinatario { get; set; }
-        
         public virtual estado estados { get; set; }
     }
 }

@@ -5,8 +5,10 @@ using System.Text;
 
 namespace SuperMail.core.models
 {
-   public class estado: BaseEntity
+    public class BaseEntity
     {
-        public string descripcion { get; set; }
+        public int id { get; set; }
+        [Timestamp]
+        public byte[] tiempoCreado { get; set; }
     }
 }
