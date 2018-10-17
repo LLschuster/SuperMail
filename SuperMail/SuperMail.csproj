@@ -120,9 +120,6 @@
     <Reference Include="Unity.Container, Version=5.8.10.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.Container.5.8.10\lib\net46\Unity.Container.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Mvc, Version=5.0.15.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Mvc.5.0.15\lib\net46\Unity.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
@@ -173,7 +170,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\MensajeController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
@@ -190,6 +186,14 @@
     <Compile Include="Migrations\201810161807236_DateCreatedInAllTablesAdded.cs" />
     <Compile Include="Migrations\201810161807236_DateCreatedInAllTablesAdded.Designer.cs">
       <DependentUpon>201810161807236_DateCreatedInAllTablesAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810162049586_ForeignKeyMessage.cs" />
+    <Compile Include="Migrations\201810162049586_ForeignKeyMessage.Designer.cs">
+      <DependentUpon>201810162049586_ForeignKeyMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810171403298_test.cs" />
+    <Compile Include="Migrations\201810171403298_test.Designer.cs">
+      <DependentUpon>201810171403298_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DbContext\MensajeContext.cs" />
@@ -238,6 +242,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Mensaje\Index.cshtml" />
+    <Content Include="Views\Mensaje\Create.cshtml" />
+    <Content Include="Views\Mensaje\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -271,6 +277,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810161807236_DateCreatedInAllTablesAdded.resx">
       <DependentUpon>201810161807236_DateCreatedInAllTablesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810162049586_ForeignKeyMessage.resx">
+      <DependentUpon>201810162049586_ForeignKeyMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810171403298_test.resx">
+      <DependentUpon>201810171403298_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
