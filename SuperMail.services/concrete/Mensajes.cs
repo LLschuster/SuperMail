@@ -45,5 +45,10 @@ namespace SuperMail.services.concrete
         {
             return context.mensajes.AsEnumerable();
         }
+
+        public mensaje findById(int id)
+        {
+            return context.mensajes.First(m => m.id == id);
+        }
     }
 }

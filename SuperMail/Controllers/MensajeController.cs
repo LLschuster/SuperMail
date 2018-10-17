@@ -12,10 +12,15 @@ namespace SuperMail.Controllers
     public class MensajeController : Controller
     {
         private readonly IMensajes imensajes;
-        
-        public MensajeController(IMensajes imensajes)
+        private readonly Iestados iestados;
+        public MensajeController()
+        {
+
+        }
+        public MensajeController(IMensajes imensajes, Iestados iestados)
         {
             this.imensajes = imensajes;
+            this.iestados = iestados;
         }
         public ActionResult Index()
         {
@@ -49,11 +54,16 @@ namespace SuperMail.Controllers
             return RedirectToAction("index");
         }
 
-        public ActionResult Contact()
+       public ActionResult Detail(int id)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var men = imensajes.findById(id);
+            MensajeViewModel viewModel = new MensajeViewModel
+            {
+                contenido = men.contenido,
+                destinatario = men.destinatario,
+                estado = iestados.getEstadoName(men.estadoID)
+            };
+            return View(viewModel);
         }
     }
 }

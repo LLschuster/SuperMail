@@ -34,9 +34,13 @@ namespace SuperMail.DependencyResolution {
            });
             //messageInterface
             For<IMensajes>().Use<Mensajes>();
+            //estadosInterface
+            For<Iestados>().Use<Estados>();
             //IRepository
             For<Irepository<BaseEntity>>().Use<repository<BaseEntity>>();
             For<Irepository<mensaje>>().Use<repository<mensaje>>();
+            For<Irepository<estado>>().Use<repository<estado>>();
+            
         }
     }
 }

@@ -44,6 +44,11 @@ namespace SuperMail.services.concrete
             mensajeContext.SaveChanges();
         }
 
+        public T findById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<T> getAll()
         {
             return mensajeContext.Set<T>().AsEnumerable();
