@@ -37,6 +37,8 @@
     </dl>
 </div>
 <p>
+    @Html.ActionLink("Enviar", "EnviarMensaje", new { id = Model.id , status = "Exito" })
+    @Html.ActionLink("EnviarConError", "EnviarMensaje", new { id = Model.id , status = "fallido" })
     
     @Html.ActionLink("Back to List", "Index")
 </p>

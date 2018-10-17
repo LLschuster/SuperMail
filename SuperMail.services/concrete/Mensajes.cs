@@ -14,9 +14,14 @@ namespace SuperMail.services.concrete
         public Mensajes (MensajeContext context){
             this.context= context;
         }
-        public void EnviarMensaje()
+        public void EnviarMensaje(int id, string status)
         {
-           
+            var menj = context.mensajes.First(m=>m.id==id);
+            if (status.Equals("Exito"))
+            {
+                menj.estadoID = 2;
+            } else { menj.estadoID = 3; }
+            context.SaveChanges();
         }
 
         
@@ -38,7 +43,8 @@ namespace SuperMail.services.concrete
 
         public void delete(mensaje entity)
         {
-            
+            context.mensajes.Remove(entity);
+            context.SaveChanges();
         }
 
         public IEnumerable<mensaje> GetAllMensajes()

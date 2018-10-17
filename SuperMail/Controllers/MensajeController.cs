@@ -51,7 +51,7 @@ namespace SuperMail.Controllers
                 };
                 imensajes.add(men);
             }
-            return RedirectToAction("index");
+            return RedirectToAction("Index");
         }
 
        public ActionResult Detail(int id)
@@ -59,11 +59,19 @@ namespace SuperMail.Controllers
             var men = imensajes.findById(id);
             MensajeViewModel viewModel = new MensajeViewModel
             {
+                id = men.id,
                 contenido = men.contenido,
                 destinatario = men.destinatario,
                 estado = iestados.getEstadoName(men.estadoID)
             };
             return View(viewModel);
+        }
+
+        
+        public ActionResult EnviarMensaje(int id, string status)
+        {
+            imensajes.EnviarMensaje(id, status);
+            return RedirectToAction("Index");
         }
     }
 }
