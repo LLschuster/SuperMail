@@ -37,8 +37,22 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Enviar", "EnviarMensaje", new { id = Model.id , status = "Exito" })
-    @Html.ActionLink("EnviarConError", "EnviarMensaje", new { id = Model.id , status = "fallido" })
-    
+    @{
+        string buttonName;
+        if (Model.estado.Equals("fallido"))
+        {
+            buttonName = "Reenviar";
+        }
+        else { buttonName = "enviar"; }
+        <div class="container" style="padding:20px">
+
+
+            @Html.ActionLink(buttonName, "EnviarMensaje", new { id = Model.id, status = "Exito" })
+        </div>
+        <div class="container" style="padding:20px">
+            @Html.ActionLink("EnviarConError", "EnviarMensaje", new { id = Model.id, status = "fallido" })
+        </div>
+    }
+
     @Html.ActionLink("Back to List", "Index")
 </p>
