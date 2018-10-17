@@ -191,6 +191,10 @@
     <Compile Include="Migrations\201810161807236_DateCreatedInAllTablesAdded.Designer.cs">
       <DependentUpon>201810161807236_DateCreatedInAllTablesAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810162049586_ForeignKeyMessage.cs" />
+    <Compile Include="Migrations\201810162049586_ForeignKeyMessage.Designer.cs">
+      <DependentUpon>201810162049586_ForeignKeyMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DbContext\MensajeContext.cs" />
     <Compile Include="Models\MensajeViewModel.cs" />
@@ -238,6 +242,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Mensaje\Index.cshtml" />
+    <Content Include="Views\Mensaje\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -271,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810161807236_DateCreatedInAllTablesAdded.resx">
       <DependentUpon>201810161807236_DateCreatedInAllTablesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810162049586_ForeignKeyMessage.resx">
+      <DependentUpon>201810162049586_ForeignKeyMessage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

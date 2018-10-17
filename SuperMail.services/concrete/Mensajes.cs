@@ -3,24 +3,47 @@ using SuperMail.core.models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Text;
 
 namespace SuperMail.services.concrete
 {
     public class Mensajes : IMensajes
     {
-        private MensajeContext db;
-        public Mensajes (MensajeContext db){
-            this.db = db;
+        private MensajeContext context;
+        public Mensajes (MensajeContext context){
+            this.context= context;
         }
         public void EnviarMensaje()
         {
-            throw new NotImplementedException();
+           
+        }
+
+        
+        public void add(mensaje mensaje)
+        {
+            context.mensajes.Add(mensaje);
+            context.SaveChanges();
+        }
+
+        public IEnumerable<mensaje> getAll()
+        {
+            return context.mensajes.AsEnumerable();
+        }
+
+        public void edit(mensaje entity)
+        {
+            
+        }
+
+        public void delete(mensaje entity)
+        {
+            
         }
 
         public IEnumerable<mensaje> GetAllMensajes()
         {
-            return db.mensajes;
+            return context.mensajes.AsEnumerable();
         }
     }
 }

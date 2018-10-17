@@ -5,9 +5,10 @@ using System.Text;
 
 namespace SuperMail.core.interfaces
 {
-    public interface IMensajes
+    public interface IMensajes : Irepository<mensaje>
     {
         IEnumerable<mensaje> GetAllMensajes();
         void EnviarMensaje();
+        
     }
 }
