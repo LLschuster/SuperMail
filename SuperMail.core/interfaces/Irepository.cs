@@ -7,6 +7,8 @@ namespace SuperMail.core.interfaces
 {
     public interface Irepository<T> where T : BaseEntity
     {
+        IEnumerable<T> getAll();
+        T findById(int id);
         void add(T entity);
         void edit(T entity);
         void delete(T entity);

@@ -19,6 +19,7 @@ namespace SuperMail.DependencyResolution {
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
     using SuperMail.core.interfaces;
+    using SuperMail.core.models;
     using SuperMail.services.concrete;
 
     public class DefaultRegistry : Registry {
@@ -33,6 +34,13 @@ namespace SuperMail.DependencyResolution {
            });
             //messageInterface
             For<IMensajes>().Use<Mensajes>();
-              }
+            //estadosInterface
+            For<Iestados>().Use<Estados>();
+            //IRepository
+            For<Irepository<BaseEntity>>().Use<repository<BaseEntity>>();
+            For<Irepository<mensaje>>().Use<repository<mensaje>>();
+            For<Irepository<estado>>().Use<repository<estado>>();
+            
+        }
     }
 }

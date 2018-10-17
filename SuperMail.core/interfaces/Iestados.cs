@@ -5,10 +5,8 @@ using System.Text;
 
 namespace SuperMail.core.interfaces
 {
-    public interface IMensajes : Irepository<mensaje>
+    public interface Iestados : Irepository<estado>
     {
-        IEnumerable<mensaje> GetAllMensajes();
-        void EnviarMensaje();
-        
+        string getEstadoName(int id);
     }
 }

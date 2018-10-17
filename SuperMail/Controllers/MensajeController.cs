@@ -1,4 +1,5 @@
 ﻿using SuperMail.core.interfaces;
+using SuperMail.core.models;
 using SuperMail.Models;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,15 @@ namespace SuperMail.Controllers
     public class MensajeController : Controller
     {
         private readonly IMensajes imensajes;
-        public MensajeController(IMensajes imensajes)
+        private readonly Iestados iestados;
+        public MensajeController()
+        {
+
+        }
+        public MensajeController(IMensajes imensajes, Iestados iestados)
         {
             this.imensajes = imensajes;
+            this.iestados = iestados;
         }
         public ActionResult Index()
         {
@@ -25,18 +32,38 @@ namespace SuperMail.Controllers
         return View(mensajeView);
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult Create()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
-
-        public ActionResult Contact()
+        
+        [HttpPost]
+        public ActionResult Create(MensajeViewModel viewModel)
         {
-            ViewBag.Message = "Your contact page.";
+            if (viewModel != null)
+            {
+                mensaje men = new mensaje
+                {
+                    contenido = viewModel.contenido,
+                    destinatario = viewModel.destinatario,
+                    estadoID = 1
+                };
+                imensajes.add(men);
+            }
+            return RedirectToAction("index");
+        }
 
-            return View();
+       public ActionResult Detail(int id)
+        {
+            var men = imensajes.findById(id);
+            MensajeViewModel viewModel = new MensajeViewModel
+            {
+                contenido = men.contenido,
+                destinatario = men.destinatario,
+                estado = iestados.getEstadoName(men.estadoID)
+            };
+            return View(viewModel);
         }
     }
 }

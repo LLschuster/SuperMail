@@ -2,6 +2,7 @@
 using SuperMail.core.models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SuperMail.services.concrete
@@ -41,6 +42,16 @@ namespace SuperMail.services.concrete
         public void edit(T entity)
         {
             mensajeContext.SaveChanges();
+        }
+
+        public T findById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<T> getAll()
+        {
+            return mensajeContext.Set<T>().AsEnumerable();
         }
     }
 }
