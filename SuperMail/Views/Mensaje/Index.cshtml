@@ -17,11 +17,11 @@
 
 @foreach (var item in Model.mensajes) {
     <tr>
-        <td>@Html.DisplayFor(m => item.id)</td>
+        <td>@Html.ActionLink(item.id.ToString(),"Detail",new { id = item.id})</td>
         <td>@Html.DisplayFor(m => item.contenido)</td>
         <td>@Html.DisplayFor(m => item.destinatario)</td>
         <td>
-            @Html.ActionLink("Detalles", "Detail", new { id = item.id }) ||
+             ||
             @Html.ActionLink("Remover", "Delete", new { id = item.id })
         </td>
     </tr>
