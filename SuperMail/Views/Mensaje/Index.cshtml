@@ -8,11 +8,13 @@
 <h2>Lista de mensajes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo mensaje", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
-        <th></th>
+        <th>ID</th>
+        <th>Contenido</th>
+        <th>Destinatario</th>
     </tr>
 
 @foreach (var item in Model.mensajes) {

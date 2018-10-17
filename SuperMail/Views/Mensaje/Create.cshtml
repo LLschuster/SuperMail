@@ -12,23 +12,32 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>MensajeViewModel</h4>
+    <h4>Mensajes</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="col-lg-4">
         
         <div class="form-group">
             
-                <fieldset>
-                    @Html.DisplayNameFor(m => m.destinatario)
+            
+                Destinatario:
+                <div class="col-lg-10">
                     @Html.TextBoxFor(m => m.destinatario)
-                </fieldset>
-                <fieldset>
-                    @Html.DisplayNameFor(m => m.contenido)
+                    @Html.ValidationMessageFor(m => m.destinatario, "", new { @class = "Text-Danger" })
+                </div>
+           
+        </div>
+        <div class="form-group">
+            
+                Contenido:
+                <div class="col-lg-10">
                     @Html.TextAreaFor(m => m.contenido)
-                </fieldset>
+                    @Html.ValidationMessageFor(m => m.contenido, "", new { @class = "Text-Danger" })
+                </div>
+           
+        </div>
                 <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            
         </div>
    
 </div>
@@ -41,3 +50,5 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
