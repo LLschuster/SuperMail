@@ -56,5 +56,10 @@ namespace SuperMail.services.concrete
         {
             return context.mensajes.First(m => m.id == id);
         }
+
+        public IEnumerable<mensaje> GetMensajesByCategory(int id)
+        {
+            return context.mensajes.Where(m => m.estadoID == id).AsEnumerable();
+        }
     }
 }

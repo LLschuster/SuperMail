@@ -27,7 +27,8 @@ namespace SuperMail.Controllers
             var allMensaje = imensajes.GetAllMensajes();
             MensajeViewModel mensajeView = new MensajeViewModel
             {
-                mensajes = allMensaje
+                mensajes = allMensaje,
+                estados = iestados.getAll()
         };
         return View(mensajeView);
         }
@@ -72,6 +73,17 @@ namespace SuperMail.Controllers
         {
             imensajes.EnviarMensaje(id, status);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult FiltrarByCategory(int id)
+        {
+            var allMensaje = imensajes.GetMensajesByCategory(id);
+            MensajeViewModel mensajeView = new MensajeViewModel
+            {
+                mensajes = allMensaje,
+                estados = iestados.getAll()
+            };
+            return View("Index", mensajeView);
         }
     }
 }

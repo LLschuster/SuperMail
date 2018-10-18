@@ -8,6 +8,7 @@ namespace SuperMail.core.interfaces
     public interface IMensajes : Irepository<mensaje>
     {
         IEnumerable<mensaje> GetAllMensajes();
+        IEnumerable<mensaje> GetMensajesByCategory(int id);
         void EnviarMensaje(int id, string status);
         
     }

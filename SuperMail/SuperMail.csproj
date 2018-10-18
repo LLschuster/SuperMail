@@ -191,6 +191,10 @@
     <Compile Include="Migrations\201810162049586_ForeignKeyMessage.Designer.cs">
       <DependentUpon>201810162049586_ForeignKeyMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810181937467_ValidationsMensajes.cs" />
+    <Compile Include="Migrations\201810181937467_ValidationsMensajes.Designer.cs">
+      <DependentUpon>201810181937467_ValidationsMensajes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DbContext\MensajeContext.cs" />
     <Compile Include="Models\MensajeViewModel.cs" />
@@ -276,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810162049586_ForeignKeyMessage.resx">
       <DependentUpon>201810162049586_ForeignKeyMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810181937467_ValidationsMensajes.resx">
+      <DependentUpon>201810181937467_ValidationsMensajes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

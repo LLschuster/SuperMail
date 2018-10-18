@@ -14,7 +14,7 @@
 <div class="form-horizontal">
     <h4>Mensajes</h4>
     <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationSummary(true, "*", new { @class = "text-danger" })
     <div class="col-lg-4">
         
         <div class="form-group">
@@ -23,7 +23,7 @@
                 Destinatario:
                 <div class="col-lg-10">
                     @Html.TextBoxFor(m => m.destinatario)
-                    @Html.ValidationMessageFor(m => m.destinatario, "", new { @class = "Text-Danger" })
+                    @Html.ValidationMessageFor(m => m.destinatario, "Este campo es requerido", new { @class = "Text-Danger" })
                 </div>
            
         </div>
@@ -32,7 +32,7 @@
                 Contenido:
                 <div class="col-lg-10">
                     @Html.TextAreaFor(m => m.contenido)
-                    @Html.ValidationMessageFor(m => m.contenido, "", new { @class = "Text-Danger" })
+                    @Html.ValidationMessageFor(m => m.contenido, "Este campo es requerido", new { @class = "Text-Danger" })
                 </div>
            
         </div>

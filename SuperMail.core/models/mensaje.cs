@@ -8,8 +8,9 @@ namespace SuperMail.core.models
 {
     public class mensaje : BaseEntity
     {
-        
+        [Required]
         public string contenido { get; set; }
+        [Required]
         public string destinatario { get; set; }
         [ForeignKey("estadoID")]
         public virtual estado estados { get; set; }

@@ -2,6 +2,7 @@
 using SuperMail.core.models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SuperMail.services.concrete
@@ -35,7 +36,7 @@ namespace SuperMail.services.concrete
 
         public IEnumerable<estado> getAll()
         {
-            throw new NotImplementedException();
+            return context.estados.AsEnumerable();
         }
 
         public string getEstadoName(int id)
