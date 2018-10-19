@@ -13,6 +13,7 @@ namespace SuperMail.Controllers
     {
         private readonly IMensajes imensajes;
         private readonly Iestados iestados;
+
         public MensajeController()
         {
 
@@ -84,6 +85,12 @@ namespace SuperMail.Controllers
                 estados = iestados.getAll()
             };
             return View("Index", mensajeView);
+        }
+        public ActionResult Delete(int id)
+        {
+            var entity = imensajes.findById(id);
+            imensajes.delete(entity);
+            return View("Index");
         }
     }
 }
