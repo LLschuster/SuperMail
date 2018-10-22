@@ -10,30 +10,30 @@ namespace SuperMail.services.concrete
 {
     public class Mensajes : IMensajes
     {
-        private MensajeContext context;
-        public Mensajes (MensajeContext context){
-            this.context= context;
+        private readonly Irepository<mensaje> irepository;
+        public Mensajes (Irepository<mensaje> irepository)
+        {
+            this.irepository = irepository;
         }
         public void EnviarMensaje(int id, string status)
         {
-            var menj = context.mensajes.First(m=>m.id==id);
+            var menj = irepository.findById(id);
             if (status.Equals("Exito"))
             {
                 menj.estadoID = 2;
             } else { menj.estadoID = 3; }
-            context.SaveChanges();
+            irepository.save();
         }
 
         
         public void add(mensaje mensaje)
         {
-            context.mensajes.Add(mensaje);
-            context.SaveChanges();
+            irepository.add(mensaje);
         }
 
         public IEnumerable<mensaje> getAll()
         {
-            return context.mensajes.AsEnumerable();
+            return irepository.getAll().AsEnumerable();
         }
 
         public void edit(mensaje entity)
@@ -43,23 +43,22 @@ namespace SuperMail.services.concrete
 
         public void delete(mensaje entity)
         {
-            context.mensajes.Remove(entity);
-            context.SaveChanges();
-        }
-
-        public IEnumerable<mensaje> GetAllMensajes()
-        {
-            return context.mensajes.AsEnumerable();
+            irepository.delete(entity);
         }
 
         public mensaje findById(int id)
         {
-            return context.mensajes.First(m => m.id == id);
+            return irepository.findById(id);
         }
 
         public IEnumerable<mensaje> GetMensajesByCategory(int id)
         {
-            return context.mensajes.Where(m => m.estadoID == id).AsEnumerable();
+            return irepository.getAll().Where(x=>x.estadoID==id).AsEnumerable();
+        }
+
+        public void save()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -53,5 +53,9 @@ namespace SuperMail.services.concrete
         {
             return mensajeContext.Set<T>().AsEnumerable();
         }
+        public void save()
+        {
+            mensajeContext.SaveChanges();
+        }
     }
 }

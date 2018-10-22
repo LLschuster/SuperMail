@@ -25,7 +25,7 @@ namespace SuperMail.Controllers
         }
         public ActionResult Index()
         {
-            var allMensaje = imensajes.GetAllMensajes();
+            var allMensaje = imensajes.getAll();
             MensajeViewModel mensajeView = new MensajeViewModel
             {
                 mensajes = allMensaje,

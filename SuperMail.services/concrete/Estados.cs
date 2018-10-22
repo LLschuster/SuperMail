@@ -9,10 +9,10 @@ namespace SuperMail.services.concrete
 {
     public class Estados : Iestados
     {
-        MensajeContext context;
-        public Estados(MensajeContext context)
+        private readonly Irepository<estado> irepository;
+        public Estados(Irepository<estado> irepository)
         {
-            this.context = context;
+            this.irepository = irepository;
         }
         public void add(estado entity)
         {
@@ -36,13 +36,18 @@ namespace SuperMail.services.concrete
 
         public IEnumerable<estado> getAll()
         {
-            return context.estados.AsEnumerable();
+            return irepository.getAll();
         }
 
         public string getEstadoName(int id)
         {
-            var estado = context.estados.Find(id);
+            var estado = irepository.findById(id);
             return estado.descripcion.ToString();
+        }
+
+        public void save()
+        {
+            throw new NotImplementedException();
         }
     }
 }

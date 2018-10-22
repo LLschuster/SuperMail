@@ -12,5 +12,6 @@ namespace SuperMail.core.interfaces
         void add(T entity);
         void edit(T entity);
         void delete(T entity);
+        void save();
     }
 }
