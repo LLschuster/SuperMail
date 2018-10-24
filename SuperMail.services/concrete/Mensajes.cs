@@ -22,7 +22,7 @@ namespace SuperMail.services.concrete
             {
                 menj.estadoID = 2;
             } else { menj.estadoID = 3; }
-            irepository.save();
+            irepository.update();
         }
 
         
@@ -36,10 +36,6 @@ namespace SuperMail.services.concrete
             return irepository.getAll().AsEnumerable();
         }
 
-        public void edit(mensaje entity)
-        {
-            
-        }
 
         public void delete(mensaje entity)
         {
@@ -56,9 +52,9 @@ namespace SuperMail.services.concrete
             return irepository.getAll().Where(x=>x.estadoID==id).AsEnumerable();
         }
 
-        public void save()
+        public void update()
         {
-            throw new NotImplementedException();
+            irepository.update();
         }
     }
 }

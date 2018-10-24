@@ -16,22 +16,17 @@ namespace SuperMail.services.concrete
         }
         public void add(estado entity)
         {
-            throw new NotImplementedException();
+            irepository.add(entity);
         }
 
         public void delete(estado entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public void edit(estado entity)
-        {
-            throw new NotImplementedException();
+            irepository.delete(entity);
         }
 
         public estado findById(int id)
         {
-            throw new NotImplementedException();
+          return  irepository.findById(id);
         }
 
         public IEnumerable<estado> getAll()
@@ -45,9 +40,9 @@ namespace SuperMail.services.concrete
             return estado.descripcion.ToString();
         }
 
-        public void save()
+        public void update()
         {
-            throw new NotImplementedException();
+            irepository.update();
         }
     }
 }

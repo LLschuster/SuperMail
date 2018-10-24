@@ -10,8 +10,7 @@ namespace SuperMail.core.interfaces
         IEnumerable<T> getAll();
         T findById(int id);
         void add(T entity);
-        void edit(T entity);
         void delete(T entity);
-        void save();
+        void update();
     }
 }

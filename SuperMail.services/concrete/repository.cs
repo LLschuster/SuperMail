@@ -39,21 +39,18 @@ namespace SuperMail.services.concrete
             }
         }
 
-        public void edit(T entity)
-        {
-            mensajeContext.SaveChanges();
-        }
+       
 
         public T findById(int id)
         {
-            throw new NotImplementedException();
+            return mensajeContext.Set<T>().First(x=>x.id == id);
         }
 
         public IEnumerable<T> getAll()
         {
             return mensajeContext.Set<T>().AsEnumerable();
         }
-        public void save()
+        public void update()
         {
             mensajeContext.SaveChanges();
         }
