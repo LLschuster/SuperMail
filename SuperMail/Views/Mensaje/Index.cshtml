@@ -1,0 +1,49 @@
+﻿@using SuperMail.Models
+@model MensajeViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-primary">Lista de mensajes</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo mensaje", "Create")
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Contenido</th>
+        <th>Destinatario</th>
+    </tr>
+
+@foreach (var item in Model.mensajes) {
+    <tr>
+        <td>@Html.ActionLink(item.id.ToString(), "Detail", new { id = item.id })</td>
+        <td>@Html.DisplayFor(m => item.contenido)</td>
+        <td>@Html.DisplayFor(m => item.destinatario)</td>
+        <td>
+             ||
+            @Html.ActionLink("Remover", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="jumbotron">
+    <p class="lead"> Filtrar por mensajes:</p>
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            @Html.ActionLink("Ver todos", "Index")
+            <span class="badge badge-primary badge-pill"></span>
+        </li>
+        @{ foreach (var category in Model.estados)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    @Html.ActionLink(category.descripcion, "FiltrarByCategory", new { id = category.id })
+                    <span class="badge badge-primary badge-pill"></span>
+                </li>
+            }
+        }
+    </ul>
+</div>

@@ -1,0 +1,58 @@
+﻿@model SuperMail.Models.MensajeViewModel
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detalle de mensaje</h2>
+
+<div>
+    <h4>Mensajes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contenido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contenido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.destinatario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.destinatario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+           @Html.DisplayFor(model => model.estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @{
+        string buttonName;
+        if (Model.estado.Equals("fallido"))
+        {
+            buttonName = "Reenviar";
+        }
+        else { buttonName = "enviar"; }
+        <div class="container" style="padding:20px">
+
+
+            @Html.ActionLink(buttonName, "EnviarMensaje", new { id = Model.id, status = "Exito" })
+        </div>
+        <div class="container" style="padding:20px">
+            @Html.ActionLink("EnviarConError", "EnviarMensaje", new { id = Model.id, status = "fallido" })
+        </div>
+    }
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

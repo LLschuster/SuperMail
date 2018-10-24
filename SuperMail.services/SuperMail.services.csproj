@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="StructureMap.MVC5" Version="3.1.1.134" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SuperMail.core\SuperMail.core.csproj" />
+  </ItemGroup>
+
+</Project>

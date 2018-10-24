@@ -1,0 +1,54 @@
+﻿@model SuperMail.Models.MensajeViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear nuevo mensaje</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Mensajes</h4>
+    <hr />
+    @Html.ValidationSummary(true, "*", new { @class = "text-danger" })
+    <div class="col-lg-4">
+        
+        <div class="form-group">
+            
+            
+                Destinatario:
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(m => m.destinatario)
+                    @Html.ValidationMessageFor(m => m.destinatario, "Este campo es requerido", new { @class = "Text-Danger" })
+                </div>
+           
+        </div>
+        <div class="form-group">
+            
+                Contenido:
+                <div class="col-lg-10">
+                    @Html.TextAreaFor(m => m.contenido)
+                    @Html.ValidationMessageFor(m => m.contenido, "Este campo es requerido", new { @class = "Text-Danger" })
+                </div>
+           
+        </div>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            
+        </div>
+   
+</div>
+}
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
