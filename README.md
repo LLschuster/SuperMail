@@ -4,14 +4,14 @@
 *************
 Mail App
 
-tecnologies: 
+*tecnologies: 
 
-Asp mvc 5
-sql server
-razor pages
-dependency injection
+1-Asp mvc 5
+2-sql server
+3-razor pages
+4-dependency injection
 
-Arquitecture:
+*Arquitecture:
 
 Onion (
 business layer
